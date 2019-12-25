@@ -118,6 +118,7 @@ func httpAction(c *cli.Context) error {
 		if !encoded {
 			data = strings.Replace(data, "`", "`+\"`\"+`", -1)
 		}
+		match = filepath.ToSlash(match)
 		params.Files = append(params.Files, &httpFile{
 			Path:    strings.TrimPrefix(match, prefix),
 			Name:    filepath.Base(match),
